@@ -11,13 +11,16 @@ class PostController extends Controller
     {
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);  
     }
-}
-?>
-
-class PostController extends Controller
-{
-    public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+    
+    /**
+    * 特定IDのpostを表示する
+    *
+    * @params Object Post // 引数の$postはid=1のPostインスタンス
+    * @return Reposnse post view
+    */
+    public function show(Post $post)
     {
-       return $post->get();//$postの中身を戻り値にする。
+         return view('posts/show')->with(['post' => $post]);
     }
+
 }
