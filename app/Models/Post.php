@@ -19,4 +19,5 @@ class Post extends Model
         // updated_at=降順、limit=件数制限
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
 }
