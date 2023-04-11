@@ -26,7 +26,14 @@ class PostController extends Controller
     {
         $input = $request['post'];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        // return redirect('/posts/' . $post->id);
+        return view('posts/show')->with(['post' => $post]);
+    }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
     }
     
     public function edit(Post $post)
